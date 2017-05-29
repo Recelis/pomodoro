@@ -1,7 +1,18 @@
+body{
+    background-color:black;
+}
+
 .flex-container {
     display: -webkit-flex;
     display: flex;
+    flex-direction: row;
     width: 400px;
-    height: 250px;
+    height: auto;
     background-color: lightgrey;
+    margin:auto;
+}
+
+.flex-item{
+    height:50px;
+    text-align:center;
 }
