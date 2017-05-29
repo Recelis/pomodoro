@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" type="text/css" href="css/weather.css">
+    <link rel="stylesheet" type="text/css" href="css/pomodoro.css">
     <title>Pomodoro Clock</title>
      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -13,18 +13,20 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
      <script src="./pomodoro.js"></script>
 </head>
-<body>
+<body class = "flex-container">
     <div class = "setTimer">
-        <div class = "breakLength">
-             <button id="decreaseBreak"></button>
-             <button id ="increaseBreak"></button>
+        <div class = "breakLength flex-item">
+             <button id="decreaseBreak">-</button>
+             <p id = "breakTime">5</p>
+             <button id ="increaseBreak">+</button>
         </div>
-        <div class = "sessionLength">
-            <button id ="decreaseSession"></button>
-            <button id ="increaseSession"></button>
+        <div class = "sessionLength flex-item">
+            <button id ="decreaseSession">-</button>
+            <p id = "sessionTime">30</p>
+            <button id ="increaseSession">+</button>
         </div>
     </div>
-    <div class = "timer">
+    <div class = "timer flex-item">
         <button> 
             <h2 id = "status">Session</h2>
             <h2 id = "timeLeft"></h2> 
