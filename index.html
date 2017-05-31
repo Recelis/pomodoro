@@ -27,10 +27,14 @@
         </div>
     </div>
     <div class = "timer flex-container">
-        <button> 
+        
+            <button onclick="handler.timerButton()"> 
             <h2 id = "status flex-item">Session</h2>
             <h2 id = "timeLeft flex-item">Start!</h2> 
-        </button>
+            </button>
+            <button onclick="handler.restartButton()">restart</button>
+        <canvas id="circle" width="578" height="200"></canvas>
+        
     </div>
 </body>
 </html>

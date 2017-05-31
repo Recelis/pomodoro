@@ -1,22 +1,57 @@
 /*
+data{
+    calculates amount of time left
+}
 
+handler{
+    controls input to data
+}
 
-
+view{
+    changes output  
+    output when done
+}
 
 */
 
 
 
 
-data = {
+var data = {
+    sessionLeft:30,
+    breakLeft:5,
+    sessionLength: 30,
+    breakLength:5,
+    timeElapsed: function(){
+
+    },
+}
+
+var handler = {
+    timerButton:function(){
+        alert("timerPressed!");
+    },
+    restartButton:function(){
+        alert("restartPressed!");
+    },
+    start: function(){
+
+    },
+    pause: function(){
+
+    },
+    restart:function(){
+
+    }
 
 }
 
-handler = {
-    
-}
+var view = {
+    running:function(){
 
-view = {
+    },
+    finished:function(){
 
+    }
 }
 
