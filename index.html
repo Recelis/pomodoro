@@ -16,24 +16,24 @@
 <body>
     <div class = "setTimer">
         <div class = "breakLength flex-container">
-            <button id="decreaseBreak flex-item">-</button>
-            <p id = "breakTime flex-item">5</p>
-            <button id ="increaseBreak flex-item">+</button>
+            <button id="decreaseBreak" class = "flex-item">-</button>
+            <p id = "breakTime" class = "flex-item">5:00</p>
+            <button id ="increaseBreak" class = "flex-item">+</button>
         </div>
         <div class = "sessionLength flex-container">
-            <button id ="decreaseSession flex-item">-</button>
-            <p id = "sessionTime flex-item">30</p>
-            <button id ="increaseSession flex-item">+</button>
+            <button id ="decreaseSession" class = "flex-item">-</button>
+            <p id = "sessionTime" class = "flex-item">30:00</p>
+            <button id ="increaseSession" class = "flex-item">+</button>
         </div>
     </div>
     <div class = "timer flex-container">
         
             <button onclick="handler.timerButton()"> 
-            <h2 id = "status flex-item">Session</h2>
-            <h2 id = "timeLeft flex-item">Start!</h2> 
+            <h2 id = "status" class = "flex-item">Session</h2>
+            <h2 id = "timeLeft" class = "flex-item">Start!</h2> 
             </button>
             <button onclick="handler.restartButton()">restart</button>
-        <canvas id="circle" width="578" height="200"></canvas>
+        <canvas id="circle" width="578" height="200"></canvas> <!-- work out what this does! -->
         
     </div>
 </body>
