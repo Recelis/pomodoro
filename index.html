@@ -16,14 +16,14 @@
 <body>
     <div class = "setTimer">
         <div class = "breakLength flex-container">
-            <button id="decreaseBreak" class = "flex-item">-</button>
+            <button id="decreaseBreak" class = "flex-item"  onclick="handler.changeBreakLength(this)">-</button>
             <p id = "breakTime" class = "flex-item">5:00</p>
-            <button id ="increaseBreak" class = "flex-item">+</button>
+            <button id ="increaseBreak" class = "flex-item" onclick="handler.changeBreakLength(this)">+</button>
         </div>
         <div class = "sessionLength flex-container">
-            <button id ="decreaseSession" class = "flex-item">-</button>
+            <button id ="decreaseSession" class = "flex-item" onclick="handler.changeSessionLength(this)">-</button>
             <p id = "sessionTime" class = "flex-item">30:00</p>
-            <button id ="increaseSession" class = "flex-item">+</button>
+            <button id ="increaseSession" class = "flex-item" onclick="handler.changeSessionLength(this)">+</button>
         </div>
     </div>
     <div class = "timer flex-container">

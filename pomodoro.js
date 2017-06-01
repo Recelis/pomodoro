@@ -22,13 +22,13 @@ var data = {
     breakLeft:300,
     sessionLength: 1800,
     breakLength:300,
-    session:true,
-    timeElapsed: function(){
-        if (data.session == true) {
+    status:'session',
+    timeElapsed: ()=>{
+        if (data.status == 'session') {
             data.sessionLeft--;
             if (data.sessionLeft == 0){
                 data.breakLeft = data.breakLength;
-                data.session = false;
+                data.status = 'break';
             }
             var timeLeft = data.convertToMinutes(data.sessionLeft);
             console.log(timeLeft);
@@ -37,14 +37,14 @@ var data = {
             data.breakLeft--;
             if (data.breakLeft == 0){
                 data.sessionLeft = data.sessionLength;
-                data.session = true;
+                data.status = 'session';
             }
             var timeLeft = data.convertToMinutes(data.breakLeft);
             console.log(timeLeft);
-        }
-        view.updateClock(data.session, timeLeft);
+        } 
+        view.updateClock(data.status, timeLeft);
     },
-    convertToMinutes:function(seconds){
+    convertToMinutes:(seconds)=>{
         var minutes = Math.floor(seconds/60);
         var remainder = seconds%60;
         return (minutes + ':'+remainder).toString();
@@ -53,28 +53,40 @@ var data = {
 
 var handler = {
     running:false,
-    timerButton:function(){
-        alert("timerPressed!");
+    timerButton:()=>{
+        var timer;
         handler.time();
     },
-    restartButton:function(){
-        alert("restartPressed!");
+    restartButton:()=>{
         
     },
-    time: function(){
+    time: ()=>{
         if (handler.running == false){
             handler.running = true;
             console.log("running");
-            var timer = setInterval(()=>data.timeElapsed()
-            ,1000);
+            timer = setInterval(()=>data.timeElapsed(),
+            1000);
         }
         else{
             handler.running = false;
             clearInterval(timer);
+            data.timeElapsed(pause);
         }
     },
-    restart:function(){
+    restart:()=>{
         handler.running = false;
+        data.breakLeft = data.breakLength;
+        data.sessionLeft = data.sessionLength;
+
+    },
+    changeBreakLength:(object)=>{
+        console.log(object.id);
+        data.breakLength+=60;
+        handler.restart();
+    },
+    changeSessionLength:(object)=>{
+        console.log(object.id);
+        data.breakLength+=60;
     }
 
 }
@@ -84,12 +96,16 @@ var view = {
         var timeLeftHandler = document.getElementById('timeLeft');
         timeLeftHandler.innerHTML = timeLeft; 
         var statusHandler = document.getElementById('status');
+        console.log(status);
         switch(status){
             case 'session':
                 statusHandler.innerHTML = 'Session';
                 break;
             case 'break':
                 statusHandler.innerHTML = 'Break';
+                break;
+            case 'pause':
+                statusHandler.innerHTML = 'Paused';
                 break;
         }
        
