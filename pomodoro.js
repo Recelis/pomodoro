@@ -42,6 +42,7 @@ var data = {
             var timeLeft = data.convertToMinutes(data.breakLeft);
             console.log(timeLeft);
         }
+        view.updateClock(data.session, timeLeft);
     },
     convertToMinutes:function(seconds){
         var minutes = Math.floor(seconds/60);
