@@ -47,6 +47,7 @@ var data = {
     convertToMinutes:(seconds)=>{
         var minutes = Math.floor(seconds/60);
         var remainder = seconds%60;
+        if (remainder < 10) return (minutes + ':0'+remainder).toString();
         return (minutes + ':'+remainder).toString();
     }
 }
@@ -57,7 +58,8 @@ var handler = {
         if (handler.running == false){
             handler.running = true;
             console.log("running");
-            timer = setInterval(()=>data.timeElapsed(),1000)
+            timer = setInterval(()=>data.timeElapsed(),1000);
+            
         }
         else{
             handler.running = false;
@@ -73,15 +75,15 @@ var handler = {
         data.status = 'session';
         view.updateClock(data.status, data.convertToMinutes(data.sessionLeft));
     },
-    // changeBreakLength:(object)=>{
-    //     console.log(object.id);
-    //     data.breakLength+=60;
-    //     handler.restart();
-    // },
-    // changeSessionLength:(object)=>{
-    //     console.log(object.id);
-    //     data.breakLength+=60;
-    // }
+    changeBreakLength:(object)=>{
+        console.log(object.id);
+        data.breakLength+=60;
+        handler.restart();
+    },
+    changeSessionLength:(object)=>{
+        console.log(object.id);
+        data.breakLength+=60;
+    }
 
 }
 
