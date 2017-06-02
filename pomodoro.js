@@ -73,16 +73,33 @@ var handler = {
         data.breakLeft = data.breakLength;
         data.sessionLeft = data.sessionLength;
         data.status = 'session';
-        view.updateClock(data.status, data.convertToMinutes(data.sessionLeft));
+        view.updateClock(data.status, "Start!");
     },
     changeBreakLength:(object)=>{
-        console.log(object.id);
-        data.breakLength+=60;
-        handler.restart();
+        if (handler.running != true){
+            console.log(object.id);
+            if (object.id == 'decreaseBreak') {
+                data.breakLength-=60;
+                if (data.breakLength < 0) data.breakLength == 0;
+            }
+            if (object.id == 'increaseBreak') data.breakLength+=60;
+            console.log(data.breakLength);
+            handler.restart();
+            view.updateLengths();
+        }
     },
     changeSessionLength:(object)=>{
-        console.log(object.id);
-        data.breakLength+=60;
+        if (handler.running != true){
+            console.log(object.id);
+            if (object.id == 'decreaseSession') {
+                data.sessionLength-=60;
+                if (data.sessionLength < 0) data.sessionLength = 0;
+            }
+            if (object.id == 'increaseSession') data.sessionLength+=60;
+            console.log(data.sessionLength);
+            handler.restart();
+            view.updateLengths();
+        }
     }
 
 }
@@ -104,7 +121,10 @@ var view = {
                 statusHandler.innerHTML = 'Paused';
                 break;
         }
-       
+    },
+    updateLengths:()=>{
+        document.getElementById("breakTime").innerHTML = data.convertToMinutes(data.breakLength);
+        document.getElementById("sessionTime").innerHTML = data.convertToMinutes(data.sessionLength);        
     }
 }
 
