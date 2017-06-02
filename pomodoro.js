@@ -14,8 +14,8 @@ view{
 
 */
 
-
-
+// global value
+var timer;
 
 var data = {
     sessionLeft:1800,
@@ -53,19 +53,11 @@ var data = {
 
 var handler = {
     running:false,
-    timerButton:()=>{
-        var timer;
-        handler.time();
-    },
-    restartButton:()=>{
-        
-    },
     time: ()=>{
         if (handler.running == false){
             handler.running = true;
             console.log("running");
-            timer = setInterval(()=>data.timeElapsed(),
-            1000);
+            timer = setInterval(()=>data.timeElapsed(),1000)
         }
         else{
             handler.running = false;
@@ -75,19 +67,21 @@ var handler = {
     },
     restart:()=>{
         handler.running = false;
+        clearInterval(timer);
         data.breakLeft = data.breakLength;
         data.sessionLeft = data.sessionLength;
-
+        data.status = 'session';
+        view.updateClock(data.status, data.convertToMinutes(data.sessionLeft));
     },
-    changeBreakLength:(object)=>{
-        console.log(object.id);
-        data.breakLength+=60;
-        handler.restart();
-    },
-    changeSessionLength:(object)=>{
-        console.log(object.id);
-        data.breakLength+=60;
-    }
+    // changeBreakLength:(object)=>{
+    //     console.log(object.id);
+    //     data.breakLength+=60;
+    //     handler.restart();
+    // },
+    // changeSessionLength:(object)=>{
+    //     console.log(object.id);
+    //     data.breakLength+=60;
+    // }
 
 }
 
