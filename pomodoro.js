@@ -1,4 +1,6 @@
 /*
+pomodoro.js
+by Jacky Lui
 data{
     calculates amount of time left to the second
 }
@@ -10,6 +12,7 @@ handler{
 view{
     changes output  
     output when done
+    updates setTimer buttons
 }
 
 */
@@ -18,9 +21,9 @@ view{
 var timer;
 
 var data = {
-    sessionLeft:1800,
+    sessionLeft:3600,
     breakLeft:300,
-    sessionLength: 1800,
+    sessionLength: 3600,
     breakLength:300,
     status:'session',
     timeElapsed: ()=>{
@@ -31,7 +34,6 @@ var data = {
                 data.status = 'break';
             }
             var timeLeft = data.convertToMinutes(data.sessionLeft);
-            console.log(timeLeft);
         }
         else {
             data.breakLeft--;
@@ -40,7 +42,6 @@ var data = {
                 data.status = 'session';
             }
             var timeLeft = data.convertToMinutes(data.breakLeft);
-            console.log(timeLeft);
         } 
         view.updateClock(data.status, timeLeft);
     },
@@ -57,7 +58,6 @@ var handler = {
     time: ()=>{
         if (handler.running == false){
             handler.running = true;
-            console.log("running");
             timer = setInterval(()=>data.timeElapsed(),1000);
             
         }
@@ -77,26 +77,22 @@ var handler = {
     },
     changeBreakLength:(object)=>{
         if (handler.running != true){
-            console.log(object.id);
             if (object.id == 'decreaseBreak') {
                 data.breakLength-=60;
                 if (data.breakLength < 0) data.breakLength == 0;
             }
             if (object.id == 'increaseBreak') data.breakLength+=60;
-            console.log(data.breakLength);
             handler.restart();
             view.updateLengths();
         }
     },
     changeSessionLength:(object)=>{
         if (handler.running != true){
-            console.log(object.id);
             if (object.id == 'decreaseSession') {
                 data.sessionLength-=60;
                 if (data.sessionLength < 0) data.sessionLength = 0;
             }
             if (object.id == 'increaseSession') data.sessionLength+=60;
-            console.log(data.sessionLength);
             handler.restart();
             view.updateLengths();
         }
