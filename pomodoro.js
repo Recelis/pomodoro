@@ -35,13 +35,15 @@ var data = {
             }
             var timeLeft = data.convertToMinutes(data.sessionLeft);
         }
-        else {
+        else if (data.status == 'break'){
             data.breakLeft--;
             if (data.breakLeft == 0){
                 data.sessionLeft = data.sessionLength;
                 data.status = 'session';
             }
             var timeLeft = data.convertToMinutes(data.breakLeft);
+        } else{ // pause
+            var timeLeft = data.convertToMinutes(data.sessionLeft);
         } 
         view.updateClock(data.status, timeLeft);
     },
@@ -55,16 +57,20 @@ var data = {
 
 var handler = {
     running:false,
+    lastStatus:'session',
     time: ()=>{
         if (handler.running == false){
             handler.running = true;
+            data.status = handler.lastStatus;
             timer = setInterval(()=>data.timeElapsed(),1000);
             
         }
         else{
             handler.running = false;
             clearInterval(timer);
-            data.timeElapsed(pause);
+            handler.lastStatus = data.status;
+            data.status = 'pause';
+            data.timeElapsed();
         }
     },
     restart:()=>{
@@ -105,7 +111,6 @@ var view = {
         var timeLeftHandler = document.getElementById('timeLeft');
         timeLeftHandler.innerHTML = timeLeft; 
         var statusHandler = document.getElementById('status');
-        console.log(status);
         switch(status){
             case 'session':
                 statusHandler.innerHTML = 'Session';
