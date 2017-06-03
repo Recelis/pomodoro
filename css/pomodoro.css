@@ -26,7 +26,7 @@
 
 .flex-restart{
     height:auto;
-    width:auto;
+    width:400px;
     text-align:center;
     margin:auto;
     flex-grow: 1;
@@ -34,7 +34,7 @@
 
 .flex-main{
     height:auto;
-    width:auto;
+    width:400px;
     text-align:center;
     margin:auto;
     flex-grow: 3;
@@ -62,11 +62,11 @@
     overflow: hidden;    
 }
 
-.fill{
+#fill{
   position: absolute;
   bottom: 0;
   width: 100%;
-  height: 80%;
+  height: 100%;
   background: #1abc9c;
   z-index: 0;
 }

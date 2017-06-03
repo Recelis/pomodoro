@@ -107,6 +107,7 @@ var handler = {
 }
 
 var view = {
+    heightFill:100,
     updateClock:(status, timeLeft)=>{
         var timeLeftHandler = document.getElementById('timeLeft');
         timeLeftHandler.innerHTML = timeLeft; 
@@ -122,6 +123,12 @@ var view = {
                 statusHandler.innerHTML = 'Paused';
                 break;
         }
+        // fill clock
+        view.calculateFillHeight();
+        document.getElementById('fill').style.height = (view.heightFill + '%').toString();
+    },
+    calculateFillHeight:()=>{
+        view.heightFill = Math.floor(data.sessionLeft/data.sessionLength*100);
     },
     updateLengths:()=>{
         document.getElementById("breakTime").innerHTML = data.convertToMinutes(data.breakLength);
@@ -129,9 +136,4 @@ var view = {
     },
 }
 
-document.addEventListener("DOMContentLoaded", function(event) {
-    var score = $(".score").text();
-    score = '100%';
-    $(".fill").css("height",score);
-});
 
