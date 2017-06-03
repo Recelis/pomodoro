@@ -14,29 +14,26 @@
      <script src="./pomodoro.js"></script>
 </head>
 <body>
-    <div class = "timer flex-container">  
-            <button onclick="handler.time()"> 
-            <h2 id = "status" class = "flex-item">Session</h2>
-            <h2 id = "timeLeft" class = "flex-item">Start!</h2> 
-            </button>
-            <button onclick="handler.restart()">restart</button>
-        <canvas id="circle" width="578" height="200"></canvas> <!-- work out what this does! -->
+    <h1 class = "title">The Time-Anxious' Pomodoro Clock</h1>
+    <div class = "clock flex-container">
+                <div class = "fill"></div> 
+                <button class = "clockInternals flex-main" onclick="handler.time()"> 
+                    <h2 id = "status">Session</h2>
+                    <h2 id = "timeLeft">Start!</h2> 
+                </button>
+                <button class = "clockInternals flex-restart" onclick="handler.restart()">restart</button>
     </div>
     <div class = "setTimer">
-        <div class = "breakLength flex-container">
-            <button id="decreaseBreak" class = "flex-item"  onclick="handler.changeBreakLength(this)">-</button>
-            <p id = "breakTime" class = "flex-item">5:00</p>
-            <button id ="increaseBreak" class = "flex-item" onclick="handler.changeBreakLength(this)">+</button>
+        <div class = "breakLength flex-TimerContainer">
+            <button id="decreaseBreak" class = "flex-setTimer"  onclick="handler.changeBreakLength(this)">-</button>
+            <p id = "breakTime" class = "flex-setTimer">5:00</p>
+            <button id ="increaseBreak" class = "flex-setTimer" onclick="handler.changeBreakLength(this)">+</button>
         </div>
-        <div class = "sessionLength flex-container">
-            <button id ="decreaseSession" class = "flex-item" onclick="handler.changeSessionLength(this)">-</button>
-            <p id = "sessionTime" class = "flex-item">60:00</p>
-            <button id ="increaseSession" class = "flex-item" onclick="handler.changeSessionLength(this)">+</button>
+        <div class = "sessionLength flex-TimerContainer">
+            <button id ="decreaseSession" class = "flex-setTimer" onclick="handler.changeSessionLength(this)">-</button>
+            <p id = "sessionTime" class = "flex-setTimer">60:00</p>
+            <button id ="increaseSession" class = "flex-setTimer" onclick="handler.changeSessionLength(this)">+</button>
         </div>
     </div>
 </body>
 </html>
-
-<!--Notes!-->
-<!--Use Flexbox in this!-->
-<!--Try to add ReactJS to this!-->

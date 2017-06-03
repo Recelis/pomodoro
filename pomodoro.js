@@ -126,6 +126,12 @@ var view = {
     updateLengths:()=>{
         document.getElementById("breakTime").innerHTML = data.convertToMinutes(data.breakLength);
         document.getElementById("sessionTime").innerHTML = data.convertToMinutes(data.sessionLength);        
-    }
+    },
 }
+
+document.addEventListener("DOMContentLoaded", function(event) {
+    var score = $(".score").text();
+    score = '100%';
+    $(".fill").css("height",score);
+});
 
