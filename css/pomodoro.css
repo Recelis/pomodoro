@@ -1,6 +1,7 @@
 
 .title{
     text-align:center;
+    font-family: 'PT Sans', sans-serif;
 }
 
 .flex-container {
@@ -49,6 +50,7 @@
     background-color:transparent;
     border:none;
     font-size:20px;
+    font-family: 'PT Sans', sans-serif;
 }
 
 .clock{
@@ -87,4 +89,12 @@
     z-index:1;
     background-color:transparent;
     border:none;
+    font-family: 'PT Sans', sans-serif;
+    color:gold;
+}
+
+.copyright{
+    margin:20px;
+    text-align:center;
+    font-family: 'PT Sans', sans-serif;
 }
