@@ -19,6 +19,9 @@ view{
 
 // global value
 var timer;
+var breakSound = new Audio('https://s3.amazonaws.com/freecodecamp/simonSound1.mp3');
+var pomoSound = new Audio('https://s3.amazonaws.com/freecodecamp/simonSound2.mp3');
+
 
 var data = {
     sessionLeft:3600,
@@ -31,6 +34,7 @@ var data = {
             data.sessionLeft--;
             if (data.sessionLeft == 0){
                 data.breakLeft = data.breakLength;
+                breakSound.play();
                 data.status = 'break';
             }
             var timeLeft = data.convertToMinutes(data.sessionLeft);
@@ -39,6 +43,7 @@ var data = {
             data.breakLeft--;
             if (data.breakLeft == 0){
                 data.sessionLeft = data.sessionLength;
+                pomoSound.play();
                 data.status = 'session';
             }
             var timeLeft = data.convertToMinutes(data.breakLeft);
@@ -63,7 +68,7 @@ var handler = {
             handler.running = true;
             data.status = handler.lastStatus;
             timer = setInterval(()=>data.timeElapsed(),1000);
-            
+            pomoSound.play();
         }
         else{
             handler.running = false;
@@ -80,6 +85,7 @@ var handler = {
         data.sessionLeft = data.sessionLength;
         data.status = 'session';
         view.updateClock(data.status, "Start!");
+        pomoSound.play();
     },
     changeBreakLength:(object)=>{
         if (handler.running != true){
