@@ -24,9 +24,9 @@ var pomoSound = new Audio('https://s3.amazonaws.com/freecodecamp/simonSound2.mp3
 
 
 var data = {
-    sessionLeft:3600,
+    sessionLeft:1500,
     breakLeft:300,
-    sessionLength: 3600,
+    sessionLength: 1500,
     breakLength:300,
     status:'session',
     timeElapsed: ()=>{
