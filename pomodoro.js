@@ -24,25 +24,26 @@ var pomoSound = new Audio("https://s3.amazonaws.com/freecodecamp/simonSound2.mp3
 
 var data = {
 	sessionLeft:15,
-	breakLeft:300,
-	sessionLength: 1500,
-	breakLength:300,
+	breakLeft:3,
+	sessionLength: 15,
+	breakLength:3,
 	status:"session",
 	timeElapsed: ()=>{
 		if (data.status == "session") {
 			data.sessionLeft--;
-			firebase.database().ref("counter").once("value").then((snapshot)=>{
-				let count = snapshot.val();
-				console.log(count);
-			});
 			if (data.sessionLeft == 0){
 				data.breakLeft = data.breakLength;
 				breakSound.play();
 				data.status = "break";
-				firebase.database().ref("counter").once("value").then((snapshot)=>{
+				// get Date
+				let date = new Date();
+				let day = date.getDay();
+				let month = date.getMonth();
+				let year = date.getFullYear();
+				firebase.database().ref("counter/" + day + "-"+month+"-" + year).once("value").then((snapshot)=>{
 					let count = snapshot.val();
 					count++;
-					firebase.database().ref("counter").set(count);
+					firebase.database().ref("counter/" + + day + "-"+month+"-" + year).set(count);
 				});
 			}
 			var timeLeft = data.convertToMinutes(data.sessionLeft);
