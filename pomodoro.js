@@ -23,10 +23,10 @@ var breakSound = new Audio("https://s3.amazonaws.com/freecodecamp/simonSound1.mp
 var pomoSound = new Audio("https://s3.amazonaws.com/freecodecamp/simonSound2.mp3");
 
 var data = {
-	sessionLeft:15,
-	breakLeft:3,
-	sessionLength: 15,
-	breakLength:3,
+	sessionLeft:1500,
+	breakLeft:300,
+	sessionLength: 1500,
+	breakLength:300,
 	status:"session",
 	timeElapsed: ()=>{
 		if (data.status == "session") {
