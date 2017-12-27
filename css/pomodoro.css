@@ -2,6 +2,12 @@
 .title{
     text-align:center;
     font-family: 'PT Sans', sans-serif;
+    font-size:30px;
+}
+.subtitle{
+    text-align:center;
+    font-family: 'PT Sans', sans-serif;
+    font-size:18px;
 }
 
 .flex-container {
