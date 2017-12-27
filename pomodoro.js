@@ -37,8 +37,8 @@ var data = {
 				data.status = "break";
 				// get Date
 				let date = new Date();
-				let day = date.getDay();
-				let month = date.getMonth();
+				let day = date.getDate();
+				let month = date.getMonth()+1;
 				let year = date.getFullYear();
 				firebase.database().ref("counter/" + day + "-"+month+"-" + year).once("value").then((snapshot)=>{
 					let count = snapshot.val();
