@@ -40,10 +40,10 @@ var data = {
 				let day = date.getDate();
 				let month = date.getMonth()+1;
 				let year = date.getFullYear();
-				firebase.database().ref("counter/" + day + "-"+month+"-" + year).once("value").then((snapshot)=>{
+				firebase.database().ref("counter/" + year + "-"+month+"-" + day).once("value").then((snapshot)=>{
 					let count = snapshot.val();
 					count++;
-					firebase.database().ref("counter/" + + day + "-"+month+"-" + year).set(count);
+					firebase.database().ref("counter/" + + year + "-"+month+"-" + day).set(count);
 				});
 			}
 			var timeLeft = data.convertToMinutes(data.sessionLeft);
