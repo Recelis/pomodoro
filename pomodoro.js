@@ -151,4 +151,8 @@ var view = {
 	},
 };
 
+function openWindow(){
+	window.open("https://github.com/Recelis/pomodoro","_blank");
+}
+
 
