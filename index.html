@@ -30,16 +30,14 @@
     
 </head>
 <body>
-    <h1 class = "title">Pomodoro Clock</h1>
-    <h2 class = "subtitle">Using the Pomodoro technique for increased productivity.</h2>
     <div class = "clock flex-container">
                 <div id = "fill"></div> 
                 <button class = "clockInternals flex-main" onclick="handler.time()"> 
-                    <h2 id = "status">Session</h2>
-                    <h2 id = "timeLeft">Start!</h2> 
+                    <h2 id = "status">session</h2>
+                    <h2 id = "timeLeft">start</h2> 
                 </button>
-                <button class = "clockInternals flex-restart" onclick="handler.restart()">restart</button>
     </div>
+    <button class = "flex-restart" onclick="handler.restart()">restart</button>
     <div class = "setTimer">
         <div class = "breakLength flex-TimerContainer">
             <button id="decreaseBreak" class = "flex-setTimer"  onclick="handler.changeBreakLength(this)">-</button>

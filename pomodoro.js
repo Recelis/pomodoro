@@ -93,7 +93,7 @@ var handler = {
 		data.breakLeft = data.breakLength;
 		data.sessionLeft = data.sessionLength;
 		data.status = "session";
-		view.updateClock(data.status, "Start!");
+		view.updateClock(data.status, "start");
 		pomoSound.play();
 	},
 	changeBreakLength:(object)=>{
@@ -129,13 +129,13 @@ var view = {
 		var statusHandler = document.getElementById("status");
 		switch(status){
 		case "session":
-			statusHandler.innerHTML = "Session";
+			statusHandler.innerHTML = "session";
 			break;
 		case "break":
-			statusHandler.innerHTML = "Break";
+			statusHandler.innerHTML = "break";
 			break;
 		case "pause":
-			statusHandler.innerHTML = "Paused";
+			statusHandler.innerHTML = "paused";
 			break;
 		}
 		// fill clock

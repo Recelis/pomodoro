@@ -1,13 +1,8 @@
-
-.title{
-    text-align:center;
-    font-family: 'PT Sans', sans-serif;
-    font-size:30px;
-}
-.subtitle{
-    text-align:center;
-    font-family: 'PT Sans', sans-serif;
-    font-size:18px;
+body{
+    background:radial-gradient(rgb(255, 66, 52), rgb(255, 66, 49)) !important;
+    width:100%;
+    height:100%;
+    padding-top:10%;
 }
 
 .flex-container {
@@ -16,7 +11,6 @@
     flex-direction: column;
     width: 400px;
     height: auto;
-    background-color: lightgrey;
     margin:20px auto 20px auto;
 }
 
@@ -26,14 +20,17 @@
     flex-direction: row;
     width: 400px;
     height: auto;
-    background-color: #1abc9c;
     margin:auto;
 }
 
 
 .flex-restart{
+    display: -webkit-flex;
+    display: flex;
+    background: rgb(255, 66, 52);
+    border:none;
     height:auto;
-    width:400px;
+    width:auto;
     text-align:center;
     margin:auto;
     flex-grow: 1;
@@ -63,7 +60,8 @@
     position: relative;
     width: 400px;
     height: 400px;
-    background: #bdc3c7;
+    background: linear-gradient(rgb(235, 139, 132),rgb(240, 231, 231));
+    border:solid 0px transparent;
     -webkit-border-radius: 200px;
     -moz-border-radius: 200px;
     border-radius: 200px;
@@ -75,32 +73,30 @@
   bottom: 0;
   width: 100%;
   height: 100%;
-  background: #1abc9c;
+  background: rgb(255, 66, 52);
   z-index: 0;
 }
 
-.score{
-  position: absolute;
-  width: 100%;
-  top: 50px;
-  text-align: center;
-  font-family: Arial, sans serif;
-  color: #fff;
-  font-size: 40pt;
-  line-height: 0;
-  font-weight: normal;
-}
 
 .clockInternals{
     z-index:1;
+    position:absolute;
+    top:10px;
+    left:10px;
+    width: 380px;
+    height: 380px;
     background-color:transparent;
     border:none;
     font-family: 'PT Sans', sans-serif;
-    color:gold;
+    color:rgb(240, 231, 231);
+    background-color:rgb(255, 66, 52);
+    -webkit-border-radius: 190px;
+    -moz-border-radius: 190px;
+    border-radius: 190px;
 }
 
 .copyright{
-    margin:20px;
+    margin-top:100px;
     text-align:center;
     font-family: 'PT Sans', sans-serif;
 }
